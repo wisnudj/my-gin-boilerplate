@@ -1,0 +1,9 @@
+{
+    "db": {
+        "dialect": "<db-dialect>",
+        "url": "<filedb-or-urldb>"
+    },
+    "server": {
+        "port": "<running-port>"
+    }
+}
