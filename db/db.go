@@ -1,6 +1,7 @@
 package db
 
 import (
+	"my-gin-boilerplate/config"
 	"my-gin-boilerplate/models"
 
 	"github.com/jinzhu/gorm"
@@ -12,7 +13,12 @@ var db *gorm.DB
 var err error
 
 func Init() {
-	db, _ = gorm.Open("sqlite3", "test.db")
+	config := config.GetConfig()
+
+	dialect := config.GetString("db.dialect")
+	url := config.GetString("db.url")
+
+	db, _ = gorm.Open(dialect, url)
 
 	if err != nil {
 		panic("failed to connect database")
