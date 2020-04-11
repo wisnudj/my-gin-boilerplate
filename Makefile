@@ -9,7 +9,11 @@ build:
 .PHONY: run
 ## run: Build and Run in development mode.
 run: build
-	@./$(NAME)
+	@./$(NAME) -e development
+
+.PHONY: run-prod
+run-prod: build
+	@./$(NAME) -e production
 
 .PHONY: clean
 clean:
